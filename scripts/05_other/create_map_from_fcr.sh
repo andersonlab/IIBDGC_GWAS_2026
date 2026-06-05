@@ -1,0 +1,22 @@
+#!/bin/bash
+# Author: Laura Fachal
+# Institution: Wellcome Sanger Institute
+# ORCID: https://orcid.org/0000-0002-7256-9752
+#
+# Author: https://orcid.org/0000-0002-7256-9752
+#
+
+# create map files from final call report style files created by Phil
+
+study=$1
+queue=$2
+array=$3
+
+path_gwas=/path/to/ibdgwas/IIBDGC/
+pathway_script=${path_gwas}scripts/
+  
+wrapper_script=create_map_from_fcr_wrapper.sh
+
+bsub -J"fcrmap${study}" -q ${queue} -G "ibdgwas" -M500 -R"select[mem>500] rusage[mem=500] span[hosts=1]" -n2 -o ${pathway_script}logs/fcrmap_stdout_${study} -e ${pathway_script}logs/fcrmap_stderr_${study} bash ${pathway_script}${wrapper_script} ${study} ${path_gwas} ${array}
+
+exit $?
