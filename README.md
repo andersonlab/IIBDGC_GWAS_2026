@@ -24,7 +24,8 @@ scripts/
 ├── 02_qc_imputation_analysis_step_4_onwards/ # Shared QC, analysis & meta-analysis (Steps 4–64)
 ├── 03_tier_2_datasets/                       # Reformatting external summary statistics
 ├── 04_sex_specific_analyses/                 # Sex-specific GWAS and meta-analysis
-└── 05_other/                                 # Supplementary analyses and visualizations
+├── 05_fine_mapping/                          # SuSiE fine-mapping and credible set processing
+└── 06_other/                                 # Supplementary analyses and visualizations
 ```
 
 ---
@@ -51,7 +52,7 @@ Scripts in `02_qc_imputation_analysis_step_4_onwards/` are applied uniformly acr
 | 24–29 | Post-imputation QC, relatedness inference, per-array PCA |
 | 30–31 | Phenotype file creation; association testing with REGENIE (mixed-model, per ancestry and per array) |
 | 32–35 | Meta-analysis: EUR with METAL; SAS with METAL; multi-ancestry with METAL and MR-MEGA; integration of Tier 2 datasets |
-| 36–43 | Fine-mapping: COJO conditional analysis, independent signal definition, LD matrix generation, closest gene annotation |
+| 36–43 | COJO conditional analysis, independent signal definition, LD matrix generation, closest gene annotation |
 | 44–45 | WES results integration; GSMR direction-of-effect analysis |
 | 46–50 | Enrichment analyses: PolyFun, heritability (LDSC), genetic correlations (IBD/CD/UC), latent causal model, local genetic correlations |
 | 51–54 | eQTL and pQTL colocalization; effector gene consensus; direction of effect validation |
@@ -66,9 +67,16 @@ Scripts in `03_tier_2_datasets/` reformat external summary statistics (FinnGen, 
 
 Scripts in `04_sex_specific_analyses/` run sex-stratified GWAS with REGENIE and perform sex-specific meta-analysis using GWAMA. These analyses were developed and implemented by Talin Haritunians (F. Widjaja Inflammatory Bowel Disease Institute).
 
+### Fine-mapping
+
+Scripts in `05_fine_mapping/` perform fine-mapping of GWAS signals using SuSiE (Sum of Single Effects) and process credible sets. These scripts were developed and implemented by Rui Zhang (Analytic and Translational Genetics Unit, Department of Medicine, Massachusetts General Hospital, Boston, MA, USA).
+
+- `01_susie.R` — SuSiE fine-mapping per locus
+- `02_CS_merge.R` — Credible set merging and post-processing
+
 ### Supplementary analyses
 
-Scripts in `05_other/` include:
+Scripts in `06_other/` include:
 - Colocalization weight matrix generation and result organisation
 - Comparison of results against prior IIBDGC and external meta-analyses (GWAS3, Liu, Huang, de Lange)
 - Visualisation: Manhattan plots, locus zoom plots, colocalization heatmaps, effect size comparisons
