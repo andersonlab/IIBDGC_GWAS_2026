@@ -142,8 +142,8 @@ Two Singularity containers are available on Zenodo:
 
 | Container | Used for | Zenodo |
 |-----------|----------|--------|
-| `iibdgc_postprocess_10_singularity.sif` | Main pipeline (QC, association, meta-analysis, annotation) | https://zenodo.org/records/20557380 |
-| `polyfun_2_singularity.sif` | Enrichment and heritability analyses (step 46–48) | https://zenodo.org/records/20557380 |
+| `iibdgc_postprocess_10_singularity.sif` | Main pipeline (QC, association, meta-analysis, annotation) | https://zenodo.org/records/20560488 |
+| `polyfun_2_singularity.sif` | Enrichment and heritability analyses (step 46–48) | https://zenodo.org/records/20560488 |
 
 To run:
 ```bash
